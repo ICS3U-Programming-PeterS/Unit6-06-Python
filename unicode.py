@@ -22,6 +22,7 @@ def display_in_hex(string, unicode_dict):
 
 
 def main():
+
     # Create an empty dictionary to store the Unicode values
     unicode_dict = {}
 
@@ -39,17 +40,17 @@ def main():
     string = input("Enter a string: ")
 
     # Ensure that the input is a valid
-    if string in unicode_dict.keys():
+    if string not in unicode_dict.keys():
+        print("Not in unicode dictionary.")
+        return -1
+
+    else:
         # Get the list of hexadecimal Unicode values for each character in the string
         hex_values = display_in_hex(string, unicode_dict)
 
         # Print the hexadecimal Unicode values for each character in the string
         for char, hex_value in zip(string, hex_values):
             print(f"{char}: {hex_value}")
-
-    else:
-        print("Input must be in unicode dictionary.")
-        return -1
 
     # Get the list of hexadecimal Unicode values for each character in the string
     hex_values = display_in_hex(string, unicode_dict)
